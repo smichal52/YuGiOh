@@ -1,0 +1,163 @@
+
+
+//#### basic bg colors ######
+$bg1: #444;
+$bg2: #888;
+$bg3: #aliceblue;
+
+
+//############################# some basic mixins #################################
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+@mixin gradient-bg($from, $to) {
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient(top, $from, $to);
+    background-image: -moz-linear-gradient(top, $from, $to);
+    background-image: -ms-linear-gradient(top, $from, $to);
+    background-image: -o-linear-gradient(top, $from, $to);
+    background-image: linear-gradient(top, $from, $to);
+}
+@mixin txt-shadow($c) {
+    text-shadow:-1px -1px 2px $c,1px -1px 3px $c,-1px  1px 2px $c,1px  1px 2px $c;
+}
+
+
+//############################# scss classes ########################################
+text1 {
+    color:#516f70;
+    border:1px solid #aaa;  
+    @include border-radius(3px);
+    padding:10px;
+    background-color: #f4f4f4;
+    &:focus{background-color:white;}
+}
+
+frame1 {
+    height:100%;width:100%;
+    height:calc(100% - 60px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding:10px;
+    margin-top:60px;
+    float:left;
+}
+
+
+
+//############### page starts here ####################################
+
+
+html,body {height:100%;width:100%;overflow:hidden;padding:0;margin:0;}
+::-webkit-scrollbar {
+  width:10px;
+  &-thumb {
+    background-color:$bg1;
+    &:hover{background-color:#aaa;}
+  } 
+} 
+
+
+//app
+.yugiapp-container {
+    font-family:arial;
+    height:100%;width:100%;
+    overflow:hidden;
+    background:$bg3;
+    
+    //general
+    * {box-sizing:border-box;}
+    > div {padding:10px;display:inline-block;}
+    
+    //search
+    .search {
+        height:60px;width:100%;
+        background:$bg1;
+        color:white;
+        position: absolute;
+        input {@extend text1;}
+    }
+    
+    //deckviewer
+    .deckviewer {
+        background:#888;
+        @extend frame1;
+        width:300px;
+        padding:0;
+        border-right:1px solid $bg1;
+
+        //card
+        li {
+            position:relative;
+            margin:0;
+            padding:10px;
+            list-style:none;
+            border-bottom:1px solid #aaa;
+            cursor:pointer;
+            
+            //colors based on type
+            &.spell    {@include gradient-bg(#fffff7, #feffca);}
+            &.monster  {@include gradient-bg(#fffafa, #ffcaca);}
+            &.trap     {@include gradient-bg(#f2f2f2, #cccccc);}
+            //colors for selected card
+            &.selected {@include gradient-bg(cadetblue, cadetblue);color:white}
+            
+            //card components
+            img {position: absolute;bottom:5px;right:5px;}//img
+            h3 {width:200px;}//title
+            span {//type,cardtype
+                display:inline-block;
+                padding:5px;
+                background:$bg1;
+                color:white;
+                width:80px;
+                vertical-align:top;
+                @include border-radius(8px);
+                &:nth-of-type(2) {width:120px}//type
+            }
+            
+        }
+        
+    } 
+    
+    //selected card
+    .details {
+        @extend frame1;
+        width:calc(100% - 300px);
+        position:relative;
+        h1 {text-align:center;}
+        > div {
+            display:inline-block;
+            vertical-align:top;
+            margin:30px;
+            max-width:calc(100% - 300px);
+            min-width:300px;
+            
+            > div {
+                label {width:120px;display:inline-block;}
+                span  {color:#5468a5;}
+            }
+        }
+    }
+    
+    //loading filter
+    .loading {
+        position: absolute;
+        top:0px;
+        left:0px;
+        height:100%;
+        width:100%;
+        background-color:black;
+        opacity:0.7;
+        background-image: url(../assets/wait2.gif);
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: center;
+        text-align:center;
+        > span {color:white;font-size:40px;margin-top:10%;display:block;}
+    }
+    
+}
