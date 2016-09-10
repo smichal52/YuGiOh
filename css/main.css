@@ -20,6 +20,18 @@ frame1, .yugiapp-container .deckviewer, .yugiapp-container .details {
   margin-top: 60px;
   float: left; }
 
+@media (min-width: 520px) and (max-width: 680px) {
+  body {
+    zoom: 0.8; } }
+@media (min-width: 450px) and (max-width: 520px) {
+  body {
+    zoom: 0.7; } }
+@media (min-width: 380px) and (max-width: 450px) {
+  body {
+    zoom: 0.6; } }
+@media (max-width: 380px) {
+  body {
+    zoom: 0.5; } }
 html, body {
   height: 100%;
   width: 100%;
