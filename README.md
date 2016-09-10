@@ -4,7 +4,12 @@ This is a basic deck viewer app for Yu-Gi-Oh,
 that was made as a simple angular-js demo.
 
 
+##Live version
+https://smichal52.github.io/yugioh/
+
+
 ##Using the app
+Use the live version, or get the files,
 setup a local/remote server and open "index.html".
 
 The app tries to open the locally stored file deck.json (only card names are specified, format is compliant with Yugioh API),
