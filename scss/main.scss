@@ -4,6 +4,9 @@
 $bg1: #444;
 $bg2: #888;
 $bg3: #aliceblue;
+//### basic sizes ###########
+$navHeight:60px; 
+$deckWidth:300px;
 
 
 //############################# some basic mixins #################################
@@ -38,11 +41,11 @@ text1 {
 
 frame1 {
     height:100%;width:100%;
-    height:calc(100% - 60px);
+    height:calc(100% - #{$navHeight});
     overflow-y: auto;
     overflow-x: hidden;
     padding:10px;
-    margin-top:60px;
+    margin-top:$navHeight;
     float:left;
 }
 
@@ -80,7 +83,8 @@ html,body {height:100%;width:100%;overflow:hidden;padding:0;margin:0;}
     
     //search
     .search {
-        height:60px;width:100%;
+        height:$navHeight;
+        width:100%;
         background:$bg1;
         color:white;
         position: absolute;
@@ -91,7 +95,7 @@ html,body {height:100%;width:100%;overflow:hidden;padding:0;margin:0;}
     .deckviewer {
         background:#888;
         @extend frame1;
-        width:300px;
+        width:$deckWidth;
         padding:0;
         border-right:1px solid $bg1;
 
@@ -113,7 +117,7 @@ html,body {height:100%;width:100%;overflow:hidden;padding:0;margin:0;}
             
             //card components
             img {position: absolute;bottom:5px;right:5px;}//img
-            h3 {width:200px;}//title
+            h3 {width:$deckWidth - 100px;}//title
             span {//type,cardtype
                 display:inline-block;
                 padding:5px;
@@ -132,7 +136,7 @@ html,body {height:100%;width:100%;overflow:hidden;padding:0;margin:0;}
     //selected card
     .details {
         @extend frame1;
-        width:calc(100% - 300px);
+        width:calc(100% - #{$deckWidth});
         position:relative;
         h1 {text-align:center;}
         > div {
