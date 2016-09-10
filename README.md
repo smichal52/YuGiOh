@@ -25,7 +25,7 @@ by reading some guides and viewing some simple examples.
 After I was a bit comfortable with it, I designed the basic layout for the app,
 and after some looking around, started working on the 1st component (the deck viewer).
 
-After setting up it's basic functionality (an ng-repeat basically),
+After setting up its basic functionality (an ng-repeat basically),
 I looked into implementing it's features like card selecting and searching (filter).
 As I finished it, I continued in a similar fashion to the next part (card details).
 
