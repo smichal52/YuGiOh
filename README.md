@@ -29,7 +29,7 @@ and after some looking around, started working on the 1st component (the deck vi
 
 After setting up it's basic functionality (an ng-repeat basically),
 I looked into implementing it's features like card selecting and searching (filter).
-Ss I finished it, I continued in a similar fashion to the next part (card details).
+As I finished it, I continued in a similar fashion to the next part (card details).
 
 I also took the time along the way to look up the proper ways to handle
 events, model updates, ajax requests, etc... in an angular-js context.
