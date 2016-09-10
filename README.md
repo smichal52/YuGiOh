@@ -15,6 +15,11 @@ while details for the selected card can be viewed on the right.
 
 There is also a search filter based on either card name or type that sits on the top.
 
+On the deck viewer, colors are based on card type
+monster: red(ish)
+spell: yellow(ish)
+trap: gray
+
 
 
 ##Development
