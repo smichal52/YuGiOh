@@ -19,7 +19,7 @@ yugiApp.controller('yugiohCtrl', function($scope, $http) {
         $http.get($scope.dataUrl+card.name).then(function(resp) {
             resp = resp.data;
             //set loaded flag if deck is finished
-            if (index == $scope.cards.length -1) $scope.loaded = true;
+            if (index == $scope.cards.length -1) $scope.loadedAll = true;
             if (resp.status != "success") return;
             $scope.cards[index] = resp.data;
         });
