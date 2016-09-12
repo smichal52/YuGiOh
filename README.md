@@ -30,6 +30,14 @@ trap: gray
 *failed to load: dark gray
 
 
+##Notes
+
+The app was made for and tested on google chrome, it will probably work ok 
+with other desktop/mobile browsers but it's not certain.
+
+In any case, the browser has to support the css function "calc",
+there will be some visual glitches if it doesn't. 
+
 
 ##Development
 
