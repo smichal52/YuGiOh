@@ -58,5 +58,5 @@ from other projects of mine since it suited me well.
 On this branch, the services were seperated from the controller.
 I don't think it was really necessary, just wanted to show a slightly different (probably more proper) approach.
 
-Finally I wrapped things up and wrote this readme file.
+
 
