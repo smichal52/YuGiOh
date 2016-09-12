@@ -1,29 +1,23 @@
 
 //setup module and controller
-var yugiApp = angular.module('yugioh', []);
-yugiApp.controller('yugiohCtrl', function($scope, $http) {
-    
-    //card data and image urls
-    $scope.dataUrl = "https://crossorigin.me/http://yugiohprices.com/api/card_data/";
+var app = angular.module('yugioh', []);
+app.controller('yugiohCtrl', function(cardService, $scope) {
+    //image/data url prefixes
     $scope.imgUrl  = "http://yugiohprices.com/api/card_image/";
+    var dataUrl    = "https://crossorigin.me/http://yugiohprices.com/api/card_data/";
     
-    //get the deck (locally stored in json format)
-    $http.get("deck.json").then(function(resp) {
-        $scope.cards = [];
-        $scope.cards = resp.data;
-        $scope.cards.forEach(getCardInfo);
-    });
-
-    //get info for a single card (via yugioh API)
-    function getCardInfo(card, index) {
-        $http.get($scope.dataUrl+card.name).then(function(resp) {
-            resp = resp.data;
-            //set loaded flag if deck is finished
-            if (index == $scope.cards.length -1) $scope.loadedAll = true;
-            if (resp.status != "success") return;
-            $scope.cards[index] = resp.data;
+    //get the deck
+    cardService.getDeck('deck.json').then(function(cards) {
+        $scope.cards = cards;
+        $scope.cards.forEach(function(card, index) {
+            //get data for each card
+            cardService.getCardInfo(card, dataUrl).then(function(cardData) {
+                //check for loading finish and save card data
+                $scope.loadedAll    = cardService.doneLoading();
+                $scope.cards[index] = cardData;
+            });
         });
-    }
+    });
   
     //card select
     $scope.setSelected = function (card) {
