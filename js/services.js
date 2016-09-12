@@ -14,6 +14,9 @@ app.factory('cardService', function($http) {
                 deckSize  = response.data.length; 
                 cardIndex = 0;
                 return response.data;
+            }, function(error) {
+                console.log(error);
+                return [];
             });
             return promise;
         },
@@ -24,6 +27,9 @@ app.factory('cardService', function($http) {
                 cardIndex++;
                 var d = response.data;
                 return (d.status == "success")?d.data:card;
+            }, function(error) {
+                console.log(error)
+                return card;
             });
             return promise;
         },
