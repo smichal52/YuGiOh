@@ -5,7 +5,7 @@ that was made as a simple angular-js demo.
 
 
 ##Live version
-https://smichal52.github.io/yugioh/
+https://smichal52.github.io/Yugioh-deckviewer/
 
 
 ##Using the app
