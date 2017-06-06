@@ -1,14 +1,14 @@
-#Yu-Gi-Oh! deck viewer app
+# Yu-Gi-Oh! deck viewer app
 
 This is a basic deck viewer app for Yu-Gi-Oh, 
 that was made as a simple angular-js demo.
 
 
-##Live version
+## Live version
 https://smichal52.github.io/Yugioh-deckviewer/
 
 
-##Using the app
+## Using the app
 Use the live version, or get the files,
 setup a local/remote server and open "index.html".
 
@@ -22,7 +22,7 @@ There is also a search filter based on either card name or type that sits on the
 
 
 
-###On the deck viewer, colors are based on card type
+### On the deck viewer, colors are based on card type
 
 monster: red(ish)
 spell: yellow(ish)
@@ -30,7 +30,7 @@ trap: gray
 *failed to load: dark gray
 
 
-##Notes
+## Notes
 
 The app was made for and tested on google chrome, it will probably work ok 
 with other desktop/mobile browsers but it's not certain.
@@ -39,7 +39,7 @@ In any case, the browser has to support the css function "calc",
 there will be some visual glitches if it doesn't. 
 
 
-##Development
+## Development
 
 I started by dedicating some time to get familiar with angular-js,
 by reading some guides and viewing some simple examples.
